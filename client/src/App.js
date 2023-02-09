@@ -1,16 +1,21 @@
 import { useState } from 'react';
 
-const points = [1,2,3,5,8,13];
+const points = {
+  point: 1,
+  point: 2,
+  point: 3,
+  point: 5,
+  point: 8,
+  point: 13
+};
 
-function ButtonLabeller(){
-  
-}
+// const points = [1,2,3,5,8,13];
 
-function ButtonCounter(){
+function ButtonCounter(props){
   const [count,setCount] = useState(0);
   return(
     <button onClick={() => setCount(count + 1)}>
-      {count}
+    {props.label}: {count}
     </button>
   );
 }
@@ -19,7 +24,7 @@ export default function Pointing(){
   return(
     <div>
       <h1>Story Pointing</h1>
-      {points.map(() => <ButtonCounter/>)}
+      {Object.keys(points)} {<ButtonCounter/>}
     </div>
   );
 }
